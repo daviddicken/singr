@@ -11,6 +11,7 @@
 displaying new uppercase word to the screen.
 - Hello page will display a hello world greeting
 - Albums page will use a template to display each album object to the page
+- Added ability to manually add albums to the collections page
 
 
 
