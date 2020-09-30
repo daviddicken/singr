@@ -9,6 +9,21 @@
     <link rel="stylesheet" href="/style.css">
 </head>
 <body>
+<h1>Albums</h1>
+
+
+<form action="/albums" method="post">
+    <input type="text" name="title" placeholder="Album Title">
+    <input type="text" name="artist" placeholder="Artist">
+    <input type="number" name="count" placeholder="Song Count">
+    <input type="number" name="seconds" placeholder="Seconds">
+    <input type="text" name="image" placeholder="Image URL">
+
+    <input type="submit">
+</form>
+
+
+
 <div th:each="albums : ${music}">
     <h3 th:text="${albums.title}">Album Title</h3>
     <h4 th:text="${albums.artist}">Artist</h4>

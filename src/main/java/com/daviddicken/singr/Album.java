@@ -1,13 +1,22 @@
 package com.daviddicken.singr;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import java.sql.Date;
+
+@Entity
 public class Album {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    long id;
 
     private String title;
     private String artist;
     private int count;
     private int seconds;
     private String image;
-
 
     public Album(String title, String artist, int count, int seconds, String image) {
         this.title = title;
@@ -16,6 +25,7 @@ public class Album {
         this.seconds = seconds;
         this.image = image;
     }
+    public Album(){}
 
     public String getTitle() {
         return title;
