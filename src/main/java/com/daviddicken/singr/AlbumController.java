@@ -4,22 +4,42 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.view.RedirectView;
 
 import java.sql.Array;
 import java.util.ArrayList;
+import java.util.Collections;
 
 @Controller// Album(String title, String artist, int count, int seconds, String image)
 public class AlbumController {
     @Autowired
     public AlbumRepository albumCollection;
+    @Autowired
+    public SongRepository songRepository;
+
+//    @GetMapping("/getSongs/{id}")
+//    public RedirectView getSongs(@PathVariable long id){
+//        ArrayList<Song> songs = (ArrayList<Song>) songRepository.findAllById(Collections.singleton(id));
+//
+//        return new RedirectView("/songList");
+//    }
+
 
     @PostMapping("/albums")
-    public RedirectView addAlbum(String title, String artist, int count, int seconds, String image){
+    public RedirectView addAlbum(String title, String artist,
+                                 int count, int seconds, String image){
 
+        //thisAlbum, name, length, track)
         Album addAlbum = new Album(title,artist,count,seconds,image);
         albumCollection.save(addAlbum);
+        //Song newSong =new Song(title,track,seconds,track)
+
+
+
+
+        //Song newSong = new Song()
 
         return new RedirectView("/albums");
     }

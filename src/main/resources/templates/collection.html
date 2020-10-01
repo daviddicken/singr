@@ -12,7 +12,7 @@
 <h1>Albums</h1>
 
 
-<form action="/albums" method="post">
+<form action="/albums"id method="post">
     <input type="text" name="title" placeholder="Album Title">
     <input type="text" name="artist" placeholder="Artist">
     <input type="number" name="count" placeholder="Song Count">
@@ -25,11 +25,23 @@
 
 
 <div th:each="albums : ${music}">
+
     <h3 th:text="${albums.title}">Album Title</h3>
     <h4 th:text="${albums.artist}">Artist</h4>
     <p th:text="'Song Count: ' + ${albums.count}">song count:</p>
     <p th:text="'Seconds: ' + ${albums.seconds}">seconds</p>
     <img th:src="${albums.image}">
+
+
+
+    <form action="/song" method="post">
+        <input type="hidden" name="albumId" th:value="${albums.id}">
+        Song : <input type="text" name="name">
+        Track: <input type="number" name="track">
+        Length: <input type="number" name="length">
+        <input type="submit" value="add">
+
+    </form>
 </div>
 </body>
 </html>
